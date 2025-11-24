@@ -107,10 +107,10 @@ Notes
 1. Open the **Google Sheet** linked to your form.
 2. Go to `Extensions → Apps Script`.
 3. Paste the complete script provided.
-4. Replace the two constants at the top of the script:
+4. Replace the two constants at the top of the script with your respective template and folder values
    ```
-   const TEMPLATE_ID = '1upMI7wbh3bruVX4rVbAS4pJgSsi7usyJLckVUkfLCUY';
-   const ROOT_FOLDER_ID = '1FSHCr8JMjo5r77UOoVhixdU0L1GmZPpS';
+   const TEMPLATE_ID = ;
+   const ROOT_FOLDER_ID = ;
    ```
 5. Save the script.
 
