@@ -1,7 +1,7 @@
 
 # 🧳 Google Form → Trip Report Generator
 
-This Google Apps Script project automatically generates monthly trip report documents from Google Form submissions. When a form is submitted, the script:
+This Google Apps Script project automatically generates trip report documents from Google Form submissions. When a form is submitted, the script:
 
 1. Copies a Google Docs template
 2. Replaces placeholders with form data
