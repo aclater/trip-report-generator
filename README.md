@@ -21,10 +21,24 @@ This Google Apps Script project automatically generates monthly trip report docu
 
 ## 📁 Folder & File Setup
 
+
+### 🔍 How to Find Your IDs
+
+- **Template Doc ID**:  
+  Open your Google Docs template in the browser. The URL will look like this:  
+  `https://docs.google.com/document/d/1ABC1234567yourDocIDgoeshere/edit`  
+  The part between `/d/` and `/edit` is your **Template Doc ID**.
+
+- **Root Folder ID**:  
+  Open the destination folder in Google Drive. The URL will look like this:  
+  `https://drive.google.com/drive/folders/1XYZ123folderIDgoeshere`  
+  The part after `/folders/` is your **Root Folder ID**.
+
+
 | Resource | Value |
 |---------|-------|
-| **Template Doc ID** | `1upMI7wbh3bruVX4rVbAS4pJgSsi7usyJLckVUkfLCUY` |
-| **Root Drive Folder ID** | `1FSHCr8JMjo5r77UOoVhixdU0L1GmZPpS` |
+| **Template Doc ID** | `<YOUR_TEMPLATE_DOC_ID>` |
+| **Root Drive Folder ID** | `<YOUR_ROOT_FOLDER_ID>` |
 | **Response Sheet Name** | `Form Responses 1` (default when linking a form) |
 
 ---
