@@ -29,16 +29,22 @@ This Google Apps Script project automatically generates trip report documents fr
   `https://docs.google.com/document/d/1ABC1234567yourDocIDgoeshere/edit`  
   The part between `/d/` and `/edit` is your **Template Doc ID**.
 
-- **Root Folder ID**:  
-  Open the destination folder in Google Drive. The URL will look like this:  
-  `https://drive.google.com/drive/folders/1XYZ123folderIDgoeshere`  
+- **Root Folder ID**:
+  Open the destination folder in Google Drive. The URL will look like this:
+  `https://drive.google.com/drive/folders/1XYZ123folderIDgoeshere`
   The part after `/folders/` is your **Root Folder ID**.
+
+- **Response Spreadsheet ID**:
+  Open the Google Sheet linked to your form. The URL will look like this:
+  `https://docs.google.com/spreadsheets/d/1ABC1234567yourSheetIDgoeshere/edit`
+  The part between `/d/` and `/edit` is your **Response Spreadsheet ID**.
 
 
 | Resource | Value |
 |---------|-------|
 | **Template Doc ID** | `<YOUR_TEMPLATE_DOC_ID>` |
 | **Root Drive Folder ID** | `<YOUR_ROOT_FOLDER_ID>` |
+| **Response Spreadsheet ID** | `<YOUR_RESPONSE_SPREADSHEET_ID>` |
 | **Response Sheet Name** | `Form Responses 1` (default when linking a form) |
 
 ---
@@ -107,10 +113,15 @@ Notes
 1. Open the **Google Sheet** linked to your form.
 2. Go to `Extensions → Apps Script`.
 3. Paste the complete script provided.
-4. Replace the two constants at the top of the script with your respective template and folder values
+4. Replace the three constants at the top of the script with your own values:
+   ```javascript
+   const TEMPLATE_ID = '';             // Your Google Docs template ID
+   const ROOT_FOLDER_ID = '';          // Your Google Drive root folder ID
+   const RESPONSE_SPREADSHEET_ID = ''; // Your Google Sheets response spreadsheet ID
    ```
-   const TEMPLATE_ID = ;
-   const ROOT_FOLDER_ID = ;
+   If your response sheet tab is not named `Form Responses 1`, also update:
+   ```javascript
+   const SHEET_NAME = 'Form Responses 1';
    ```
 5. Save the script.
 
@@ -122,7 +133,7 @@ Notes
 2. Click **+ Add Trigger**.
 3. Set:
    - Function: `autoFillTripReport`
-   - Event Source: **From form**
+   - Event Source: **From spreadsheet**
    - Event Type: **On form submit**
 4. Save and authorize the script.
 
@@ -145,6 +156,8 @@ Notes
   - Check `Apps Script > Executions` tab for error logs.
 - **Multiple `Trip Report URL` columns?**
   - Manually delete all but one. The script always writes to the first matching column.
+- **Script times out or fails to lock?**
+  - Check `Apps Script > Executions` for a `LockService` timeout error. This can happen if multiple submissions arrive simultaneously — re-submitting the form should resolve it.
 
 ---
 
