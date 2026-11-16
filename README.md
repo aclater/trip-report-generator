@@ -10,6 +10,29 @@ This Google Apps Script project automatically generates trip report documents fr
 
 ---
 
+## Quick start
+
+You need a Google Form with a linked Google Sheet, a Google Docs template (see [Template Format](#-template-format-google-doc)), and a Drive folder for the reports.
+
+1. Open the **Google Sheet** linked to your form and go to `Extensions → Apps Script`.
+2. Replace the editor's contents with [`code.gs`](code.gs) from this repository.
+3. Set the three constants at the top of `autoFillTripReport` to your template, folder and sheet IDs ([how to find them](#-how-to-find-your-ids)):
+   ```javascript
+   const TEMPLATE_ID = '';             // Your Google Docs template ID
+   const ROOT_FOLDER_ID = '';          // Your Google Drive root folder ID
+   const RESPONSE_SPREADSHEET_ID = ''; // Your Google Sheets response spreadsheet ID
+   ```
+   If your response sheet tab is not named `Form Responses 1`, also update `const SHEET_NAME = 'Form Responses 1';`. Save the script.
+4. Click the **Triggers** icon (clock), then **+ Add Trigger**, and set:
+   - Function: `autoFillTripReport`
+   - Event Source: **From spreadsheet**
+   - Event Type: **On form submit**
+
+   Save and authorize the script.
+5. Submit the form once. A report appears in a monthly folder such as `Trip Reports/2025-07/`, and its link in the sheet's `Trip Report URL` column.
+
+---
+
 ## 📋 What You’ll Need
 
 1. **A Google Form** collecting trip report fields
@@ -105,37 +128,6 @@ Notes
 | `{{RedHatters}}` | What Red Hatters were in attendance? |
 | `{{Partners}}` | What Partners were in attendance? |
 | `{{Observations}}` | Any additional notes. |
-
----
-
-## 🧠 How to Install the Script
-
-1. Open the **Google Sheet** linked to your form.
-2. Go to `Extensions → Apps Script`.
-3. Paste the complete script provided.
-4. Replace the three constants at the top of the script with your own values:
-   ```javascript
-   const TEMPLATE_ID = '';             // Your Google Docs template ID
-   const ROOT_FOLDER_ID = '';          // Your Google Drive root folder ID
-   const RESPONSE_SPREADSHEET_ID = ''; // Your Google Sheets response spreadsheet ID
-   ```
-   If your response sheet tab is not named `Form Responses 1`, also update:
-   ```javascript
-   const SHEET_NAME = 'Form Responses 1';
-   ```
-5. Save the script.
-
----
-
-## 🔁 Add a Trigger
-
-1. In Apps Script, click the **Triggers** icon (clock).
-2. Click **+ Add Trigger**.
-3. Set:
-   - Function: `autoFillTripReport`
-   - Event Source: **From spreadsheet**
-   - Event Type: **On form submit**
-4. Save and authorize the script.
 
 ---
 
